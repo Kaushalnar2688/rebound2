@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05070b" />
+  <title>The Last Rebound</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="game-root">
+    <canvas id="game-canvas"></canvas>
+    <div id="film-grain"></div>
+    <div id="vignette"></div>
+    <div id="transition-wash"></div>
+
+    <section id="title-screen" class="screen active">
+      <div class="title-backdrop"></div>
+      <div class="title-content">
+        <div class="eyebrow"><span class="eyebrow-line"></span> A PSYCHOLOGICAL HORROR EXPERIENCE</div>
+        <h1>THE LAST<br><em>REBOUND</em></h1>
+        <p class="tagline">Some memories are better left buried.</p>
+        <div class="title-rule"></div>
+        <button id="start-button" class="primary-button">ENTER THE PARK <span>↗</span></button>
+        <div class="title-meta"><span>CHAPTER 01 — THE ARRIVAL</span><span>HEADPHONES RECOMMENDED</span></div>
+      </div>
+      <div class="title-bottom">A MEMORY DOESN'T ALWAYS STAY WHERE YOU LEFT IT.</div>
+    </section>
+
+    <section id="intro-cutscene" class="cutscene hidden">
+      <div class="cutscene-noise"></div>
+      <div class="cutscene-frame">
+        <div class="scene-kicker" id="scene-kicker">UNKNOWN NUMBER · VOICEMAIL</div>
+        <div class="scene-visual" id="scene-visual">
+          <div class="phone-glow"></div><div class="phone-silhouette"></div>
+        </div>
+        <div class="scene-caption" id="scene-caption"></div>
+        <div class="scene-subtitle" id="scene-subtitle"></div>
+        <button id="skip-cutscene" class="text-button">SKIP INTRO ↗</button>
+      </div>
+    </section>
+
+    <div id="hud" class="hidden">
+      <div class="hud-top">
+        <div class="chapter-label"><span class="live-dot"></span><span id="chapter-name">CHAPTER 01 / THE ARRIVAL</span></div>
+        <div class="timeline-chip" id="timeline-chip"><span class="timeline-dot"></span><span id="timeline-name">PRESENT</span></div>
+      </div>
+      <div class="hud-bottom">
+        <div class="objective-panel">
+          <div class="hud-micro">CURRENT OBJECTIVE</div>
+          <div id="objective-text">Find a way into the park.</div>
+        </div>
+        <div class="timer-panel hidden" id="timer-panel">
+          <div class="hud-micro">MEMORY COLLAPSING IN</div>
+          <div id="past-timer">60<span>s</span></div>
+        </div>
+        <div class="tool-panel">
+          <div class="tool-icon" id="flashlight-status"><span class="flashlight-glyph">◉</span></div>
+          <div><div class="hud-micro">FLASHLIGHT</div><div id="flashlight-label">OFF</div></div>
+        </div>
+      </div>
+      <div id="crosshair"><i></i><b></b></div>
+      <div id="interaction-prompt" class="hidden"><span class="keycap">E</span><span id="interaction-text">INTERACT</span></div>
+      <div id="toast" class="toast"></div>
+      <div id="memory-caption" class="memory-caption"></div>
+      <div id="danger-edge"></div>
+    </div>
+
+    <section id="pause-screen" class="screen hidden">
+      <div class="pause-card">
+        <div class="eyebrow">THE PARK IS WAITING</div>
+        <h2>PAUSED</h2>
+        <p>Take a breath. It can wait.</p>
+        <button id="resume-button" class="primary-button">RETURN TO THE PARK <span>↗</span></button>
+        <button id="restart-button" class="secondary-button">RESTART CHAPTER</button>
+        <div class="controls-grid">
+          <span>W A S D</span><small>MOVE</small><span>MOUSE</span><small>LOOK</small>
+          <span>SPACE</span><small>JUMP / BOUNCE</small><span>E</span><small>INTERACT</small>
+          <span>SHIFT</span><small>SPRINT</small><span>F</span><small>FLASHLIGHT</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="ending-screen" class="screen hidden">
+      <div class="ending-content">
+        <div class="eyebrow" id="ending-kicker">THE LAST REBOUND</div>
+        <h2 id="ending-title">IT'S OKAY.<br><em>YOU CAME BACK.</em></h2>
+        <p id="ending-copy"></p>
+        <div class="ending-rule"></div>
+        <button id="ending-restart" class="primary-button">PLAY AGAIN <span>↗</span></button>
+        <div class="ending-credit">THE LAST REBOUND · A MEMORY THAT NEVER ENDS</div>
+      </div>
+    </section>
+
+    <div id="subtitle-bar" class="subtitle-bar"></div>
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-mark">LR<span>.</span></div>
+      <div class="loading-track"><i></i></div>
+      <div class="loading-label">RESTORING THE MEMORY</div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
