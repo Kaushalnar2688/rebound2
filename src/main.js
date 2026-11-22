@@ -365,7 +365,7 @@ function addWorldArt(group,isPast){
   }
 }
 addWorldArt(presentGroup,false);addWorldArt(pastGroup,true);
-// A subtle atmospheric gradient and floating dust motes, animated in update().
+// A subtle atmospheric gradient and floating dust motes, d in update().
 const dustMaterial=new THREE.MeshBasicMaterial({color:0xc6bca7,transparent:true,opacity:.22,depthWrite:false});
 const dust=new THREE.Group();
 for(let i=0;i<110;i++){const mote=new THREE.Mesh(new THREE.SphereGeometry(.012+Math.random()*.018,5,4),dustMaterial);mote.position.set((Math.random()-.5)*38,1+Math.random()*7,(Math.random()-.5)*44);mote.userData.phase=Math.random()*6.28;dust.add(mote);}
@@ -904,12 +904,14 @@ function update(dt){
   }
   if(state.timeline==="past"&&state.instability>=3&&Math.random()<dt*.04)glitchPulse();
 }
-function animate(){
+function (){
   requestAnimationFrame(animate);
   const dt=Math.min(clock.getDelta(),.04);
   update(dt);renderer.render(scene,camera);
 }
 animate();
+// Hide the initial loading screen once the game has initialized
+ui.loading.classList.add("hidden");
 
 window.addEventListener("resize",()=>{
   camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();
