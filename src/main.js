@@ -904,7 +904,7 @@ function update(dt){
   }
   if(state.timeline==="past"&&state.instability>=3&&Math.random()<dt*.04)glitchPulse();
 }
-function (){
+function animate(){
   requestAnimationFrame(animate);
   const dt=Math.min(clock.getDelta(),.04);
   update(dt);renderer.render(scene,camera);
